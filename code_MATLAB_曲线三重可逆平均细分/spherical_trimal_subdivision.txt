@@ -1,0 +1,15 @@
+#
+# 平台：windows 8.1 + Geogebra 5
+# 
+
+# 1、首先固定球心坐标A，并生成球面上的封闭初始控制多边形集l0.
+A = (?,?,?)
+l0 = {B,C,D,...,?}
+
+# 2、确定细分次数t、平均次数m、平滑参数w
+t = 3
+m = 5
+w = .4
+
+# 3、复制以下代码到命令行中
+Join(Last(IterationList(Join(Zip( Join(Join(Zip(Last(IterationList( Join(Zip( Join(Zip( Zip( If( Mod(i_1, 3) == 2, If(i_3==i_4, i_3, Rotate(i_3, i_5 *Angle(i_3, A, i_4), A, Plane(i_4, A, i_3))), If( Mod(i_1, 3) == 0, i_3, If(i_3==i_2, i_3, Rotate(i_3, i_5*Angle(i_3, A, i_2), A, Plane(i_2, A, i_3))) ) ), i_2, Take(l_1, i_1-1, i_1-1), i_3, Take(l_1, i_1, i_1), i_4, Take(l_1, i_1+1, i_1+1) ), i_1, 2..(Length(l_1)-1) )), l_1, {Join(Last(l_2), Last(l_2), l_2)} )), l_2, {l_3}, m )), i_5, {w}))), l_3, {Join(Zip( Join(Zip( Join( Take(l_0, i_0, i_0), Take(l_0, i_0, i_0), Take(l_0, i_0, i_0) ), i_0, 1..Length(l_0) )), l_0, {l_4} ))} )), l_4, {l0}, t)))
